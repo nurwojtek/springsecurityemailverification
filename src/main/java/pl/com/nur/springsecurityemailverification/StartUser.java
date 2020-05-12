@@ -20,20 +20,20 @@ public class StartUser {
         this.appUserRepo = appUserRepo;
         this.carDbRepo = carDbRepo;
 
-        AppUser appUser = new AppUser();
-        appUser.setUsername("Wojtek");
-        appUser.setPassword(passwordEncoder.encode("1234"));
-        appUser.setRole(AppRole.ADMIN);
-        appUser.setEnabled(true);
-        appUserRepo.save(appUser);
-
-        AppUser appUser1 = new AppUser();
-        appUser1.setUsername("Iza");
-        appUser1.setPassword(passwordEncoder.encode("1234"));
-        appUser1.setRole(AppRole.USER);
-        appUser1.setEnabled(true);
-        appUserRepo.save(appUser1);
-
-        carDbRepo.save(new Car("Fiat", "126p", "czerwony", 1980));
+//        AppUser appUser = new AppUser();
+//        appUser.setUsername("Wojtek");
+//        appUser.setPassword(passwordEncoder.encode("1234"));
+//        appUser.setRole(AppRole.ADMIN);
+//        appUser.setEnabled(true);
+//        appUserRepo.save(appUser);
+//
+//        AppUser appUser1 = new AppUser();
+//        appUser1.setUsername("Iza");
+//        appUser1.setPassword(passwordEncoder.encode("1234"));
+//        appUser1.setRole(AppRole.USER);
+//        appUser1.setEnabled(true);
+//        appUserRepo.save(appUser1);
+//
+//        carDbRepo.save(new Car("Fiat", "126p", "czerwony", 1980));
     }
 }
