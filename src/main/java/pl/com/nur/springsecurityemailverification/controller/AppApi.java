@@ -13,12 +13,12 @@ public class AppApi {
     public AppApi() {
     }
 
-    @GetMapping("/")
+    @GetMapping("/forAll")
     public String forAllStart(Principal principal){
         return "Strona startowa dla wszystkich";
     }
 
-    @GetMapping("/forAll")
+    @GetMapping("/forAllUser")
     public String forAll(Principal principal){
         if (principal == null)
             return "Cześć nieznajomy";

@@ -42,16 +42,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/forAdmin").hasRole("ADMIN")
+                .antMatchers("/delete/{id}").hasRole("ADMIN")
                 .antMatchers("/forUser").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/add").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/singup").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/forUser").permitAll()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()
                 .and()
                 .rememberMe().tokenValiditySeconds(1*60*60).rememberMeCookieName("rehresh").rememberMeParameter("remember")
 //                .rememberMe().tokenValiditySeconds(1*60*60)
                 .tokenRepository(persistentTokenRepository())  // trzymamy sejsje po stornie bazy danych
                 .and()
-                .logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/");;
     }
 
     @Bean
